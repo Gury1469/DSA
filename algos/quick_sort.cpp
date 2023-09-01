@@ -4,9 +4,20 @@ using namespace std;
 
 int partition(vector<int>& arr,int l,int r)
 {
-    int index,pivot=arr[r];
-    
-    return index;
+    int pivot=arr[r];
+    int x=l-1;
+    for(int i=l;i<r;i++)
+    {
+        if(arr[i]<pivot)
+        {
+            x++;
+            swap(arr[i],arr[x]);
+        }
+    }
+    x++;
+    swap(arr[x],arr[r]);
+
+    return x;       //returning correct position of pivot element
 }
 void quickSort(vector<int>& arr,int l,int r)
 {
